@@ -1,0 +1,26 @@
+{
+  "bin": {
+    "fems": "bin/fems",
+    "fems-create": "bin/fems-create"
+  },
+  "name": "fe-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lvmengmeng",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "glob": "^7.1.2",
+    "handlebars": "^4.0.11",
+    "inquirer": "^6.2.2",
+    "latest-version": "^3.1.0",
+    "log-symbols": "^2.2.0",
+    "metalsmith": "^2.3.0",
+    "ora": "^3.2.0"
+  }
+}

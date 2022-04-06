@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const chalk = require('chalk');
+const ora = require('ora');
+const { exec } = require('child_process');
+const fs = require('fs');
+program
+    .usage('[project-name]')
+program
+    .parse(process.argv)
+// 输入参数校验
+if (program.args.length < 1) {
+  return program.help()
+}
+// 获取项目名称
+let projectName = program.args[0];
+
+// 项目名称校验
+if (!projectName) {
+  console.log(chalk.red('\n Project should not be empty! \n '));
+  return;
+}
+// 项目创建提示
+console.log(chalk.white('\n 项目创建中... \n'));
+// 加载图标
+const spinner = ora("Downloading...");
+spinner.start();
+// 克隆项目模板
+exec('git clone https://github.com/mengmengzp/webpack5.git', (err, stdout, stderr) => {
+  if(err) {
+    console.log(err);
+    return;
+  }
+  console.log(`stderr: ${stderr}`);
+  // 修改名称
+  fs.rename('./webpack5', projectName ,(err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log('项目创建成功');
+    console.log(chalk.green(`cd ${projectName}\nnpm install\nnpm run dev`));
+  });
+  spinner.succeed();
+
+})

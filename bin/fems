@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+const program = require('commander');
+const chalk = require('chalk');
+console.log('**********************************************************************');
+console.log('*      '+chalk.red('前端项目脚手架工具（fems）:'));
+console.log('*      '+chalk.green('1、项目搭建-开发-部署一站式流程，让开发更加快速和规范')+'  ');
+console.log('*      '+chalk.green('2、快速生成工程化项目，避免繁琐配置或手动复制')+'   ');
+console.log('**********************************************************************');
+program
+  .version(require('../package').version)
+  .usage('<command> [options]')
+  .command('create', '快速生成项目 fems create <项目名>')
+
+program.parse(process.argv)
